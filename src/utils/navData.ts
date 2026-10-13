@@ -22,6 +22,9 @@ import {
   Download,
 } from 'lucide-react';
 import { attachGuidesToResources } from './guideMatcher';
+import { PLATFORM_NONE, getGithubRepoKey, isKnownPlatform } from './resourcePlatforms.mjs';
+// 平台自动探测缓存：由构建期的 platform-detect 集成（src/utils/platformDetect.mjs）维护
+import platformCache from '../data/platform-cache.json';
 
 /** 页面图标映射表（对应 nav-pages JSON 的 icon 字段） */
 export const NAV_ICONS: Record<string, any> = {
@@ -43,6 +46,46 @@ export const NAV_ICONS: Record<string, any> = {
 /** 按图标名取组件，未配置或名称未知时回退到 LayoutDashboard */
 export function getNavIcon(name?: string) {
   return (name && NAV_ICONS[name]) || LayoutDashboard;
+}
+
+/**
+ * 支持平台解析，三档优先级（真源见 src/utils/resourcePlatforms.mjs）：
+ *   1. platforms 含 none 哨兵      → 强制不显示（自动探测也不再兜底）
+ *   2. platforms 填了已知平台值    → 以手动为准
+ *   3. 其余（空数组 / 未填写）     → 回退到 src/data/platform-cache.json 的自动探测结果
+ * 结果写回 resource.platforms，SiteCard 直接透传渲染徽章。
+ */
+function resolveResourcePlatforms(resource: any) {
+  const manual = Array.isArray(resource.platforms) ? resource.platforms : [];
+
+  if (manual.includes(PLATFORM_NONE)) {
+    resource.platforms = [];
+    return resource;
+  }
+
+  const manualKnown = manual.filter(isKnownPlatform);
+  if (manualKnown.length > 0) {
+    resource.platforms = manualKnown;
+    return resource;
+  }
+
+  const repoKey = getGithubRepoKey(resource.url);
+  const detected = repoKey ? (platformCache as any).repos?.[repoKey]?.platforms : null;
+  resource.platforms = Array.isArray(detected) ? detected.filter(isKnownPlatform) : [];
+  return resource;
+}
+
+/** 遍历分组内的全部资源（分组直属 / 分类直属 / Tab 列表） */
+function forEachResource(groups: any[], visit: (resource: any) => void) {
+  for (const group of groups) {
+    (group.resources || []).forEach(visit);
+    for (const category of group.categories || []) {
+      (category.resources || []).forEach(visit);
+      for (const tab of category.tabs || []) {
+        (tab.list || []).forEach(visit);
+      }
+    }
+  }
 }
 
 /**
@@ -68,6 +111,9 @@ export async function loadNavResources(): Promise<any[]> {
 
       // 自动填充 guide_id
       currentGroups = attachGuidesToResources(currentGroups, guides);
+
+      // 解析支持平台（手动优先 / 自动探测兜底），供站点卡片浮窗展示徽章
+      forEachResource(currentGroups, resolveResourcePlatforms);
 
       currentGroups.sort((a, b) => {
         const sortA = Number(a.pageConfig?.sortPrefix || 10);

@@ -15,8 +15,7 @@ const BADGE_RULES = [
       { label: 'Stars', value: 'stars' },
       { label: 'Last Commit', value: 'last_commit' },
       { label: 'Version', value: 'version' },
-      { label: 'License', value: 'license' },
-      
+      // License 已下线（浮窗改展示「支持平台」徽章，见 src/utils/resourcePlatforms.mjs）
       { label: 'Issues', value: 'issues' },
       { label: 'Forks', value: 'forks' },
     ]

@@ -3,6 +3,8 @@
 import { BookOpen, Info } from 'lucide-react';
 import { marked } from 'marked';
 import { getBadges } from './utils';
+// 支持平台真源（平台定义 / 徽章生成 / 手动哨兵值都在那里）
+import { getPlatformBadges } from '../../utils/resourcePlatforms.mjs';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -13,7 +15,7 @@ import './site-card.css';
 const cn = (...inputs: ClassValue[]) => twMerge(clsx(inputs));
 
 // 接收 Props
-const { title, name, url, icon, desc, detail, official_site, hide_badges = [], guide_id, status = 'ok', animationDelay = 0 } = Astro.props;
+const { title, name, url, icon, desc, detail, official_site, hide_badges = [], guide_id, status = 'ok', platforms = [], animationDelay = 0 } = Astro.props;
 
 const targetUrl = url || official_site || '#';
 
@@ -25,14 +27,15 @@ const localFallback = `${base}/favicon.svg`;
 const finalIcon = (icon && icon.includes('/images/')) ? `${base}${icon}` : localFallback;
 
 
-// 2. 徽章逻辑
+// 2. 徽章逻辑（仓库动态统计徽章 + 支持平台徽章）
 const badges = getBadges(url, hide_badges);
+const platformBadges = getPlatformBadges(platforms);
 
 // 3. 详情内容逻辑 (纯 Markdown 模式)
 const hasDetailContent = detail && detail.trim().length > 0;
 
 // 计算 hasPopup
-const hasPopup = !!(hasDetailContent || (badges && badges.length > 0));
+const hasPopup = !!(hasDetailContent || badges.length > 0 || platformBadges.length > 0);
 
 // 4. 预先解析 Markdown 为 HTML
 let markdownHtml = '';
@@ -162,9 +165,10 @@ const titleStyles = cn(
         <div class="text-[11px] font-black text-brand-600 dark:text-brand-400 mb-2 flex items-center gap-2 uppercase tracking-widest font-body">
           <span class="w-1.5 h-3 bg-brand-600 rounded-sm"></span>详情
         </div>
-        {badges.length > 0 && (
+        {(badges.length > 0 || platformBadges.length > 0) && (
           <div class="flex flex-wrap gap-2 mb-2 border-b border-slate-100 dark:border-slate-800 pb-2">
             {badges.map(b => <img data-src={b.src} alt={b.alt} class="h-4 min-w-16 rounded-sm" />)}
+            {platformBadges.map(b => <img data-src={b.src} alt={`支持 ${b.alt}`} class="h-4 min-w-16 rounded-sm" />)}
           </div>
         )}
         {hasDetailContent && (

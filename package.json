@@ -19,7 +19,9 @@
     "build:gh": "cross-env DEPLOY_TARGET=github astro build",
     "build:root": "cross-env DEPLOY_TARGET=root astro build",
     "build:admin": "cross-env DEPLOY_TARGET=admin astro build",
-    "serve:admin": "cross-env DEPLOY_TARGET=admin astro build && node ./dist/server/entry.mjs"
+    "serve:admin": "cross-env DEPLOY_TARGET=admin astro build && node ./dist/server/entry.mjs",
+    "//说明2": "👇 补全平台探测缓存（手动 platforms 字段优先，未填写的 GitHub 资源走这里兜底）",
+    "platforms:detect": "node src/utils/platformDetect.mjs"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.10",

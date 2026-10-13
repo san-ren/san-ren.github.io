@@ -40,6 +40,8 @@ function createNewResource(resource: ParsedResource) {
     desc: resource.desc,
     icon: resource.icon,
     hide_badges: [],
+    // 空数组 = 交给构建期自动探测兜底（手动勾选后以手动为准）
+    platforms: [],
     status: 'ok',
   };
 }

@@ -1046,6 +1046,83 @@
           ]
         }
       ]
+    },
+    {
+      "name": "反代网关",
+      "resources": [
+        {
+          "toolbox": null,
+          "name": "TraeWorkAssistant",
+          "url": "https://github.com/smart-open/TraeWorkAssistant",
+          "official_site": "https://blog.sopenai.cn",
+          "desc": "AI Work 助手 — Windows/Macos 桌面端 AI 应用多账号管理一体化工具。深度支持 Trae Work / Trae/ WorkBuddy / CodeBuddy / Qoder  /豆包 多应用：多账号签到、登录态一键切换、设备标识隔离、账号分组、积分看板、OpenAI 兼容 API 网关。数据全部本地存储。Tauri 2 + React + Rust。",
+          "icon": "/images/logos/smart-open-TraeWorkAssistant.webp?t=1791885302670",
+          "hide_badges": [],
+          "status": "ok"
+        },
+        {
+          "toolbox": null,
+          "name": "AgentHub",
+          "url": "https://github.com/HUIdada1/AgentHub",
+          "official_site": "",
+          "desc": "① Trae/WorkBuddy/Zcode/Qoder/AutoClaw/Cline/商汤小浣熊/CatPaw 等主流agent反向代理：把本机Trae、WorkBuddy、Zcode转为OpenAI兼容API，统一转发模型请求、托管 API Key、实时统计调用量；② Skill 技能库：本地扫描、智能去重、分类管理 Agent 技能，支持 WebDAV 远程同步，换机一键迁移；③ 用量记录同步：自动抓取 Trae、WorkBuddy、CodeBuddy、Qoder、Codex、Grok 等工具的 token 消耗与成本，加密存储、多端同步、结合计费规则自动算账，生成趋势图表与费用账单。④记忆中枢：可MCP链接进行记忆存储，配置模型可以进行蒸馏，多agent同步一套记忆，多设备同步记忆",
+          "icon": "/images/logos/HUIdada1-AgentHub.webp?t=1791885302310",
+          "hide_badges": [],
+          "status": "ok"
+        },
+        {
+          "toolbox": null,
+          "name": "workbuddy2api-panel",
+          "url": "https://github.com/linguo2625469/workbuddy2api-panel",
+          "official_site": "",
+          "desc": "把腾讯WorkBuddy账号变成 OpenAI 兼容 API 的多账号网关，同时自动完成任务中心全部任务，附 Web 管理面板（账号池可视化 / 积分任务 / 配置热更新）。基于 Sliverkiss/workbuddy2api 的增强分支",
+          "icon": "/images/logos/linguo2625469-workbuddy2api-panel.webp?t=1791885303030",
+          "hide_badges": [],
+          "status": "ok"
+        },
+        {
+          "toolbox": null,
+          "name": "workbuddy2api-hub",
+          "url": "https://github.com/ardeyouxipianyi/workbuddy2api-hub",
+          "official_site": "https://github.com/ardeyouxipianyi/workbuddy2api-intl/releases",
+          "desc": "WorkBuddy 国际国内多账号反代网关，支持 Codex / Claude Code / DSH与标准 OpenAI 客户端。",
+          "icon": "/images/logos/ardeyouxipianyi-workbuddy2api-hub.webp?t=1791885302592",
+          "hide_badges": [],
+          "status": "ok"
+        },
+        {
+          "toolbox": null,
+          "name": "workbuddy-auto-signin",
+          "url": "https://github.com/88lin/workbuddy-auto-signin",
+          "official_site": "https://github.com/88lin/workbuddy-auto-signin",
+          "desc": "自动领取 WorkBuddy 每日签到积分与成长中心全部奖励 —— Buddy 旅行礼物、派 Buddy、开盲盒、领任务、连登兑换、断登补签全覆盖。无需额外安装依赖，一句话让 AI 自动配好 Windows / macOS 定时任务，零 Token 静默运行。",
+          "icon": "/images/logos/88lin-workbuddy-auto-signin.webp?t=1791885302824",
+          "hide_badges": [],
+          "status": "ok"
+        },
+        {
+          "toolbox": null,
+          "name": "aurora",
+          "url": "https://github.com/aurora-develop/aurora",
+          "official_site": "",
+          "desc": "free chatgpt api",
+          "icon": "/images/logos/aurora-develop-aurora.webp?t=1791885302934",
+          "hide_badges": [],
+          "status": "ok"
+        },
+        {
+          "toolbox": null,
+          "name": "trae-workbuddy-switch",
+          "url": "https://github.com/NextAgentX/trae-workbuddy-switch",
+          "official_site": "",
+          "desc": "WorkBuddy / TraeWork 国内和国际版账号切换桌面 App（Tauri），支持积分到期监控与签到。  (WorkBuddy / TraeWork desktop app for switching between domestic and international accounts (Tauri), supports monitoring points expiration and check-in.)",
+          "icon": "/images/logos/NextAgentX-trae-workbuddy-switch.webp?t=1791889964354",
+          "hide_badges": [],
+          "platforms": [],
+          "status": "ok"
+        }
+      ],
+      "tabs": []
     }
   ]
 }

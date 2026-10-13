@@ -4,6 +4,7 @@ import React from 'react';
 import { toolboxField, iconPickerField, toolboxLinkField } from './src/components/keystatic/ToolboxField'; 
 import { badgeListField } from './src/components/keystatic/BadgeField';
 import { RESOURCE_STATUS_OPTIONS, getStatusEmoji } from './src/utils/resourceStatus';
+import { RESOURCE_PLATFORM_OPTIONS } from './src/utils/resourcePlatforms.mjs';
 
 const VISUAL_TAGS = [
   { label: '🏠 首页/概览', value: '🏠' },
@@ -186,6 +187,12 @@ const resourceFields = {
   hide_badges: badgeListField({
     label: '隐藏徽章 (勾选则隐藏)',
     description: '根据上方项目地址自动生成可用的徽章选项',
+    defaultValue: []
+  }),
+  platforms: fields.multiselect({
+    label: '🖥️ 支持平台',
+    description: '手动勾选即以此为准；留空的资源由构建期从 GitHub Release 附件名自动探测兜底，勾选「不显示平台徽章」可强制隐藏',
+    options: RESOURCE_PLATFORM_OPTIONS,
     defaultValue: []
   }),
   guide_id: fields.text({ label: '关联教程ID' }),

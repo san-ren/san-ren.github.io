@@ -27,7 +27,8 @@ import {
   RotateCcw,
   Eye,
   EyeOff,
-  Check
+  Check,
+  AlertCircle
 } from 'lucide-react';
 import { useGithubToken } from '../TokenContext';
 import {
@@ -119,6 +120,11 @@ const STYLES = buildToolboxStyles({
     background: '#fef3c7',
     color: '#92400e',
   },
+  // 从未配置过 Token（≠ 未保存）：中性灰，不能拿绿色冒充"已配置"
+  tokenMissing: {
+    background: '#f1f5f9',
+    color: '#64748b',
+  },
 });
 
 // --- 辅助函数 ---
@@ -166,7 +172,18 @@ interface GithubCheckerProps {
 }
 
 export function GithubChecker({ onDataStatusChange, onTaskStart, onTaskProgress, onTaskEnd }: GithubCheckerProps) {
-  const { githubToken, setGithubToken, saveToken, resetToken, isTokenSaved } = useGithubToken();
+  const { githubToken, setGithubToken, saveToken, resetToken, isTokenSaved, hasStoredToken } = useGithubToken();
+  // 有内容可存、且尚未保存时才允许点「保存」：未配置 + 空输入时保存空值没有意义
+  const canSaveToken = !isTokenSaved && githubToken.trim().length > 0;
+
+  // 状态文案：只有「没存过 + 输入框也空着」才算未配置；
+  // 一旦输入框有内容（哪怕还没点保存）就该提示未保存，不能再冒充已配置。
+  const tokenState: 'missing' | 'saved' | 'unsaved' =
+    !hasStoredToken && githubToken.trim().length === 0
+      ? 'missing'
+      : isTokenSaved
+        ? 'saved'
+        : 'unsaved';
   const [staleYears, setStaleYears] = useState(3);
   const [scanResult, setScanResult] = useState<ScanResult | null>(null);
   
@@ -660,9 +677,18 @@ export function GithubChecker({ onDataStatusChange, onTaskStart, onTaskProgress,
                   {/* 状态指示 */}
                   <span style={{
                     ...STYLES.tokenStatus,
-                    ...(isTokenSaved ? STYLES.tokenSaved : STYLES.tokenUnsaved)
+                    ...(tokenState === 'saved'
+                      ? STYLES.tokenSaved
+                      : tokenState === 'unsaved'
+                        ? STYLES.tokenUnsaved
+                        : STYLES.tokenMissing)
                   }}>
-                    {isTokenSaved ? (
+                    {tokenState === 'missing' ? (
+                      <>
+                        <AlertCircle size={12} />
+                        未配置
+                      </>
+                    ) : tokenState === 'saved' ? (
                       <>
                         <Check size={12} />
                         已保存
@@ -678,11 +704,11 @@ export function GithubChecker({ onDataStatusChange, onTaskStart, onTaskProgress,
                   {/* 保存按钮 */}
                   <button
                     onClick={saveToken}
-                    disabled={isTokenSaved}
+                    disabled={!canSaveToken}
                     style={{
                       ...STYLES.button.success,
-                      opacity: isTokenSaved ? 0.5 : 1,
-                      cursor: isTokenSaved ? 'not-allowed' : 'pointer',
+                      opacity: canSaveToken ? 1 : 0.5,
+                      cursor: canSaveToken ? 'pointer' : 'not-allowed',
                     }}
                     title="保存到浏览器本地存储"
                   >

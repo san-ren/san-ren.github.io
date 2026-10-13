@@ -18,7 +18,7 @@ export const BADGE_OPTIONS = {
   github: [
     { label: 'Stars (星标)', value: 'stars' },
     { label: 'Version (版本)', value: 'version' },
-    { label: 'License (开源协议)', value: 'license' },
+    // License 已下线：浮窗上的许可徽章改由支持平台徽章（见 ../../utils/resourcePlatforms.mjs）占位
     { label: 'Last Commit (最后提交)', value: 'last_commit' },
   ],
   vscode: [
@@ -53,6 +53,7 @@ export const getBadges = (url, hide_badges = []) => {
         const styleParam = "?style=flat&color=blue";
 
         // 定义 GitHub 支持的徽章配置
+        // ⚠️ License 已下线：浮窗改展示「支持平台」徽章，见 ../../utils/resourcePlatforms.mjs
         const badgeConfigs = {
           stars: { 
             src: `https://img.shields.io/github/stars/${owner}/${repo}${styleParam}&label=Stars`, 
@@ -65,13 +66,7 @@ export const getBadges = (url, hide_badges = []) => {
           version: { 
             src: `https://img.shields.io/github/v/release/${owner}/${repo}${styleParam}&color=orange&label=Release`, 
             alt: "Version" 
-          },
-          
-          license: { 
-            src: `https://img.shields.io/github/license/${owner}/${repo}${styleParam}&color=green&label=License`, 
-            alt: "License" 
           }
-          
         };
 
         // 遍历配置，如果 Key 不在 hiddenKeys 中，则显示

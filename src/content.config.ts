@@ -1,6 +1,7 @@
 import { defineCollection, reference, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { RESOURCE_STATUSES } from './utils/resourceStatus';
+import { RESOURCE_PLATFORM_ENUM } from './utils/resourcePlatforms.mjs';
 
 // 资源结构
 const resourceItemSchema = z.object({
@@ -10,7 +11,12 @@ const resourceItemSchema = z.object({
   desc: z.string().optional(),
   icon: z.string().optional(),
   guide_id: z.string().optional(),
-  badge_list: z.array(z.string()).optional(),
+  // 需要隐藏的动态徽章 key（Keystatic 的「隐藏徽章」字段写的就是这个名字；
+  // 名字写错时 zod 会静默剥掉整字段，后台勾选就白勾了）
+  hide_badges: z.array(z.string()).optional(),
+  // 支持平台: windows | macos | linux | android | ios | web，以及 none(强制不显示平台徽章)
+  // 留空 / 未填写时由页面回退到 src/data/platform-cache.json 的自动探测结果
+  platforms: z.array(z.enum(RESOURCE_PLATFORM_ENUM)).optional(),
   // Keystatic fields.document 生成的是 JSON 结构，这里使用 z.any() 是安全的
   detail: z.any().optional(),
   // 资源状态: ok(正常) | stale(长期未更新) | 官网失效(已失效) | github已归档 | github仓库已失效 | 网站失效 | 网站超时

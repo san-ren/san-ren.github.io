@@ -11,6 +11,10 @@ import { TokenContext } from './TokenContext';
 // localStorage key
 const GITHUB_TOKEN_KEY = 'toolbox_github_token';
 
+/** 读取浏览器里已保存的 Token（无 window 的环境返回空串） */
+const readStoredGithubToken = () =>
+  typeof window !== 'undefined' ? localStorage.getItem(GITHUB_TOKEN_KEY) || '' : '';
+
 // --- 类型定义 ---
 type TabId = 'link' | 'editor';
 
@@ -81,16 +85,14 @@ export function ToolboxPage() {
   const [showConfirmModal, setShowConfirmModal] = useState(false);
 
   // ✅ 全局GitHub Token状态 - 支持localStorage持久化
-  const [githubToken, setGithubTokenState] = useState(() => {
-    // 初始化时从localStorage读取
-    if (typeof window !== 'undefined') {
-      return localStorage.getItem(GITHUB_TOKEN_KEY) || '';
-    }
-    return '';
-  });
+  const [githubToken, setGithubTokenState] = useState(readStoredGithubToken);
   
   // 追踪是否有未保存的更改
   const [isTokenSaved, setIsTokenSaved] = useState(true);
+  // 存储里是否真的配置了 Token（显示「已保存 / 未配置」的依据）
+  // ⚠️ 不能拿 isTokenSaved 顶替：它初始与「重置」后都是 true，
+  //    于是项目转移 / 换浏览器 / 清过存储时明明没有 Token，界面却显示「已保存」。
+  const [hasStoredToken, setHasStoredToken] = useState(() => readStoredGithubToken().length > 0);
 
   // 子组件数据状态（由子组件通过回调更新）
   const [hasUnsavedData, setHasUnsavedData] = useState({
@@ -135,11 +137,14 @@ export function ToolboxPage() {
     setIsTokenSaved(false);
   }, []);
 
-  // 保存Token到localStorage
+  // 保存Token到localStorage（顺带去掉粘贴时可能带上的空白）
   const saveToken = useCallback(() => {
     if (typeof window !== 'undefined') {
-      localStorage.setItem(GITHUB_TOKEN_KEY, githubToken);
+      const value = githubToken.trim();
+      localStorage.setItem(GITHUB_TOKEN_KEY, value);
+      setGithubTokenState(value);
       setIsTokenSaved(true);
+      setHasStoredToken(value.length > 0);
     }
   }, [githubToken]);
 
@@ -149,6 +154,7 @@ export function ToolboxPage() {
       localStorage.removeItem(GITHUB_TOKEN_KEY);
       setGithubTokenState('');
       setIsTokenSaved(true);
+      setHasStoredToken(false);
     }
   }, []);
 
@@ -226,6 +232,7 @@ export function ToolboxPage() {
     saveToken,
     resetToken,
     isTokenSaved,
+    hasStoredToken,
   };
 
   return (

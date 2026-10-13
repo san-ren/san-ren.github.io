@@ -1,6 +1,7 @@
 // --- START OF FILE astro.config.mjs ---
 
 import { mkdirSync, writeFileSync } from 'node:fs';
+import { readGithubToken, runPlatformDetection } from './src/utils/platformDetect.mjs';
 import { defineConfig } from 'astro/config';
 import node from '@astrojs/node';
 import react from "@astrojs/react";
@@ -176,7 +177,53 @@ if (isDevCommand) {
   });
 }
 
-// 6. Vite 构建优化配置
+// 6. 支持平台自动探测（手动 platforms 字段的兜底数据源，真源见 src/utils/resourcePlatforms.mjs）
+//    只为「未手动填写平台」的 GitHub 资源补 src/data/platform-cache.json，页面渲染时由
+//    navData.ts 读取（手动优先、缓存兜底）。
+//    构建期阻塞执行，保证页面渲染时缓存已就绪；dev 下不阻塞启动，写完缓存由 Vite 热更新带出。
+//    永远是"尽力而为"：网络失败 / API 限额耗尽只打印提示，绝不打断 dev / build。
+//    开关：PLATFORM_DETECT=auto(默认) | force(连未过期的缓存也重探) | off；
+//          PLATFORM_DETECT_BUDGET 本轮请求上限；PLATFORM_DETECT_TTL_DAYS 缓存有效期（默认 30 天）。
+const platformDetectMode = process.env.PLATFORM_DETECT || 'auto';
+
+if (platformDetectMode !== 'off') {
+  const runPlatformDetect = async (stage) => {
+    try {
+      const token = readGithubToken(process.cwd());
+      const summary = await runPlatformDetection({
+        root: process.cwd(),
+        mode: platformDetectMode,
+        token,
+        budget: Number(process.env.PLATFORM_DETECT_BUDGET) || 0,
+        ttlDays: Number(process.env.PLATFORM_DETECT_TTL_DAYS ?? 30),
+        log: (message) => console.log(`🖥️ [Platform] ${message}`),
+      });
+
+      if (summary.requested > 0) {
+        console.log(
+          `🖥️ [Platform/${stage}] 平台缓存新增 ${summary.added} 条（已缓存 ${summary.cached}/${summary.candidates}，待探测 ${summary.pending}${token ? '，已认证' : '，未认证'}）`
+        );
+      }
+      if (summary.pending > summary.requested && !summary.rateLimited) {
+        console.log('   └ 提示：pnpm platforms:detect 可继续补全；.env 里配 GITHUB_TOKEN 可一次跑完全站');
+      }
+    } catch (error) {
+      console.warn('🖥️ [Platform] 自动探测跳过：', error?.message || error);
+    }
+  };
+
+  integrations.push({
+    name: 'platform-detect',
+    hooks: {
+      'astro:build:start': () => runPlatformDetect('build'),
+      'astro:server:start': () => {
+        void runPlatformDetect('dev');
+      },
+    },
+  });
+}
+
+// 7. Vite 构建优化配置
 const viteConfig = {
   plugins: [tailwindcss()],
   // ⚠️ keystatic.config.tsx 会被 KeystaticAdmin.tsx `import config from '../../keystatic.config'`

@@ -1,0 +1,2543 @@
+{
+  "_note": "支持平台自动探测缓存：由 astro.config.mjs 的 platform-detect 集成（pnpm dev / pnpm build）与 `pnpm platforms:detect` 维护，键为 github 的 owner/repo。资源里手动填写的 platforms 字段优先，不受此处影响；可安全提交，删除后重跑即重建。",
+  "repos": {
+    "moekoemusic/moekoemusic": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 95,
+      "checkedAt": "2026-10-13T11:07:35.525Z"
+    },
+    "lyswhut/lx-music-desktop": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 125,
+      "checkedAt": "2026-10-13T11:07:34.615Z"
+    },
+    "maotoumao/musicfreedesktop": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 39,
+      "checkedAt": "2026-10-13T11:04:57.530Z"
+    },
+    "ourongxing/newsnow": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:07:37.415Z"
+    },
+    "listen1/listen1_desktop": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 115,
+      "checkedAt": "2026-10-13T11:04:56.798Z"
+    },
+    "guanguans/music-dl": {
+      "platforms": [],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:04:58.253Z"
+    },
+    "super-badmen-viper/nsmusics": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 37,
+      "checkedAt": "2026-10-13T11:04:57.540Z"
+    },
+    "greedysky/ttkmusicplayer": {
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "assetCount": 106,
+      "checkedAt": "2026-10-13T11:04:57.990Z"
+    },
+    "go-musicfox/go-musicfox": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux",
+        "android"
+      ],
+      "assetCount": 105,
+      "checkedAt": "2026-10-13T11:04:58.201Z"
+    },
+    "zonemeen/musicn": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:04:58.233Z"
+    },
+    "dream7180/foobox-cn": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 14,
+      "checkedAt": "2026-10-13T11:04:58.843Z"
+    },
+    "digimezzo/dopamine-windows": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 4,
+      "checkedAt": "2026-10-13T11:04:58.920Z"
+    },
+    "zhongyang219/musicplayer2": {
+      "platforms": [],
+      "assetCount": 10,
+      "checkedAt": "2026-10-13T11:04:59.012Z"
+    },
+    "topics/unblockneteasemusic": {
+      "platforms": [],
+      "checkedAt": "2026-10-13T11:04:59.568Z",
+      "note": "repository not found"
+    },
+    "playwora/wora": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 15,
+      "checkedAt": "2026-10-13T11:04:59.062Z"
+    },
+    "qier222/yesplaymusic": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 74,
+      "checkedAt": "2026-10-13T11:04:59.915Z"
+    },
+    "xiaozhu188/electron-vue-cloud-music": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 37,
+      "checkedAt": "2026-10-13T11:04:59.918Z"
+    },
+    "yoyicue/mp3tag-douban-id3-plugins": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:00.944Z"
+    },
+    "java-s12138/music_download": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:00.826Z"
+    },
+    "sudoevolve/evolveui": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:00.699Z"
+    },
+    "afalphy/particlemusic": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux",
+        "android"
+      ],
+      "assetCount": 40,
+      "checkedAt": "2026-10-13T11:05:02.094Z"
+    },
+    "imsyy/splayer": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 155,
+      "checkedAt": "2026-10-13T11:05:01.610Z"
+    },
+    "guohuiyuan/go-music-dl": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux",
+        "android",
+        "ios"
+      ],
+      "assetCount": 240,
+      "checkedAt": "2026-10-13T11:05:01.970Z"
+    },
+    "lyswhut/lx-music-mobile": {
+      "platforms": [
+        "android"
+      ],
+      "assetCount": 25,
+      "checkedAt": "2026-10-13T11:05:01.756Z"
+    },
+    "vishnusanal/dialogmusicplayer": {
+      "platforms": [
+        "android"
+      ],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:04.193Z"
+    },
+    "2697a/bujuan": {
+      "platforms": [
+        "android"
+      ],
+      "assetCount": 3,
+      "checkedAt": "2026-10-13T11:05:02.800Z"
+    },
+    "maotoumao/musicfree": {
+      "platforms": [
+        "android"
+      ],
+      "assetCount": 25,
+      "checkedAt": "2026-10-13T11:05:02.480Z"
+    },
+    "fossifyorg/music-player": {
+      "platforms": [
+        "android"
+      ],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:02.494Z"
+    },
+    "z-huang/innertune": {
+      "platforms": [
+        "android"
+      ],
+      "assetCount": 25,
+      "checkedAt": "2026-10-13T11:05:03.261Z"
+    },
+    "krtirtho/spotube": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux",
+        "android",
+        "ios"
+      ],
+      "assetCount": 73,
+      "checkedAt": "2026-10-13T11:05:03.795Z"
+    },
+    "pdone/lx-music-source": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:03.429Z"
+    },
+    "luoxiaohei-2025/lx-music-collection": {
+      "platforms": [
+        "macos"
+      ],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:04.049Z"
+    },
+    "huibq/keep-alive": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:04.420Z"
+    },
+    "guoyue2010/lxmusic-": {
+      "platforms": [],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:04.157Z"
+    },
+    "onecodemonkey/music-sources": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:04.828Z"
+    },
+    "ruben2776/picview": {
+      "platforms": [
+        "windows",
+        "macos"
+      ],
+      "assetCount": 32,
+      "checkedAt": "2026-10-13T11:05:04.985Z"
+    },
+    "jurplel/qview": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 53,
+      "checkedAt": "2026-10-13T11:05:05.243Z"
+    },
+    "wlm3201/masonry_image_viewer": {
+      "platforms": [
+        "web"
+      ],
+      "assetCount": 1,
+      "checkedAt": "2026-10-13T11:05:05.390Z"
+    },
+    "laosunmaker/new_lxmusic_source": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:04.647Z"
+    },
+    "molunerfinn/picgo": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 95,
+      "checkedAt": "2026-10-13T11:05:06.268Z"
+    },
+    "xpoet/picx": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:05.650Z"
+    },
+    "icret/easyimages2.0": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:05.922Z"
+    },
+    "sharex/sharex": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 10,
+      "checkedAt": "2026-10-13T11:05:06.102Z"
+    },
+    "flameshot-org/flameshot": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 125,
+      "checkedAt": "2026-10-13T11:05:06.673Z"
+    },
+    "xushengfeng/esearch": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 81,
+      "checkedAt": "2026-10-13T11:05:06.916Z"
+    },
+    "xland/screencapture": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:07.015Z"
+    },
+    "027xiguapi/pear-rec": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 32,
+      "checkedAt": "2026-10-13T11:05:07.398Z"
+    },
+    "artem78/autoscreenshot": {
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "assetCount": 13,
+      "checkedAt": "2026-10-13T11:05:07.664Z"
+    },
+    "mg-chao/snow-shot": {
+      "platforms": [
+        "windows",
+        "macos"
+      ],
+      "assetCount": 310,
+      "checkedAt": "2026-10-13T11:05:07.559Z"
+    },
+    "tylearymf/setuna2": {
+      "platforms": [],
+      "assetCount": 10,
+      "checkedAt": "2026-10-13T11:05:07.719Z"
+    },
+    "lokerl/img-toolbox": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 6,
+      "checkedAt": "2026-10-13T11:05:08.107Z"
+    },
+    "aaronfeng753/waifu2x-extension-gui": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 10,
+      "checkedAt": "2026-10-13T11:05:09.502Z"
+    },
+    "upscayl/upscayl": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 70,
+      "checkedAt": "2026-10-13T11:05:08.572Z"
+    },
+    "faster3ck/converseen": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 49,
+      "checkedAt": "2026-10-13T11:05:08.636Z"
+    },
+    "mathewsachin/captura": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 10,
+      "checkedAt": "2026-10-13T11:05:08.810Z"
+    },
+    "mifi/lossless-cut": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 67,
+      "checkedAt": "2026-10-13T11:05:09.847Z"
+    },
+    "yaofanguk/video-subtitle-remover": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 20,
+      "checkedAt": "2026-10-13T11:05:10.301Z"
+    },
+    "1265578519/shanaencoder": {
+      "platforms": [],
+      "assetCount": 10,
+      "checkedAt": "2026-10-13T11:05:09.765Z"
+    },
+    "handbrake/handbrake": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 129,
+      "checkedAt": "2026-10-13T11:05:09.884Z"
+    },
+    "lake1059/ffmpegfreeui": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 15,
+      "checkedAt": "2026-10-13T11:05:10.526Z"
+    },
+    "lstprjct/idm-activation-script": {
+      "platforms": [],
+      "checkedAt": "2026-10-13T11:05:10.524Z",
+      "note": "repository not found"
+    },
+    "speauty/anto": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:10.543Z"
+    },
+    "aria2/aria2": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 32,
+      "checkedAt": "2026-10-13T11:05:11.095Z"
+    },
+    "gopeedlab/gopeed": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux",
+        "android",
+        "ios"
+      ],
+      "assetCount": 126,
+      "checkedAt": "2026-10-13T11:05:11.510Z"
+    },
+    "imfile-io/imfile-desktop": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 125,
+      "checkedAt": "2026-10-13T11:05:11.793Z"
+    },
+    "agalwood/motrix": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 145,
+      "checkedAt": "2026-10-13T11:05:12.065Z"
+    },
+    "subhra74/xdm": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 22,
+      "checkedAt": "2026-10-13T11:05:12.513Z"
+    },
+    "c0re100/qbittorrent-enhanced-edition": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 65,
+      "checkedAt": "2026-10-13T11:05:11.965Z"
+    },
+    "junkfood02/seal": {
+      "platforms": [
+        "android"
+      ],
+      "assetCount": 21,
+      "checkedAt": "2026-10-13T11:05:12.725Z"
+    },
+    "amir1376/ab-download-manager": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux",
+        "android"
+      ],
+      "assetCount": 110,
+      "checkedAt": "2026-10-13T11:05:12.677Z"
+    },
+    "yaobiao131/downkyicore": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:12.701Z"
+    },
+    "scottsloan/bili23-downloader": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 53,
+      "checkedAt": "2026-10-13T11:05:13.617Z"
+    },
+    "btjawa/bilitools": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:13.355Z"
+    },
+    "nilaoda/bbdown": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 30,
+      "checkedAt": "2026-10-13T11:05:13.562Z"
+    },
+    "leiurayer/downkyi": {
+      "platforms": [],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:13.545Z"
+    },
+    "nilaoda/n_m3u8dl-re": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 48,
+      "checkedAt": "2026-10-13T11:05:14.511Z"
+    },
+    "harlan-h/m3u8downloader_h": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 60,
+      "checkedAt": "2026-10-13T11:05:14.408Z"
+    },
+    "zhiyiyo/fluent-m3u8": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 30,
+      "checkedAt": "2026-10-13T11:05:14.308Z"
+    },
+    "soimort/you-get": {
+      "platforms": [],
+      "assetCount": 20,
+      "checkedAt": "2026-10-13T11:05:14.417Z"
+    },
+    "mickael-kerjean/filestash": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:15.068Z"
+    },
+    "tyrrrz/youtubedownloader": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 35,
+      "checkedAt": "2026-10-13T11:05:15.198Z"
+    },
+    "infphub/raptor": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:15.536Z"
+    },
+    "qiye45/wechatdownload": {
+      "platforms": [],
+      "assetCount": 6,
+      "checkedAt": "2026-10-13T11:05:15.787Z"
+    },
+    "xiaoguyu/wechatdownload": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 15,
+      "checkedAt": "2026-10-13T11:05:15.877Z"
+    },
+    "qiye45/wechatvideodownload": {
+      "platforms": [],
+      "assetCount": 4,
+      "checkedAt": "2026-10-13T11:05:16.273Z"
+    },
+    "gaozhangmin/aliyunpan": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 111,
+      "checkedAt": "2026-10-13T11:05:16.596Z"
+    },
+    "1061700625/wechat_article": {
+      "platforms": [],
+      "assetCount": 1,
+      "checkedAt": "2026-10-13T11:05:16.500Z"
+    },
+    "striver-ing/wechat-spider": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:16.496Z"
+    },
+    "mosheng1/quickclipboard": {
+      "platforms": [
+        "windows",
+        "android"
+      ],
+      "assetCount": 36,
+      "checkedAt": "2026-10-13T11:05:17.238Z"
+    },
+    "huiyadanli/pasteex": {
+      "platforms": [],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:17.184Z"
+    },
+    "hluk/copyq": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 44,
+      "checkedAt": "2026-10-13T11:05:17.402Z"
+    },
+    "idered/snatch": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:17.840Z"
+    },
+    "ayangweb/ecopaste": {
+      "platforms": [
+        "windows",
+        "macos"
+      ],
+      "assetCount": 55,
+      "checkedAt": "2026-10-13T11:05:18.129Z"
+    },
+    "alanwanco/tinycopyboard": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 4,
+      "checkedAt": "2026-10-13T11:05:17.934Z"
+    },
+    "lemon-codehub/lemonpush": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux",
+        "android"
+      ],
+      "assetCount": 25,
+      "checkedAt": "2026-10-13T11:05:18.111Z"
+    },
+    "imlinhanchao/sticky_notes": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 15,
+      "checkedAt": "2026-10-13T11:05:18.800Z"
+    },
+    "qiu7824/zsclip": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux",
+        "android"
+      ],
+      "assetCount": 63,
+      "checkedAt": "2026-10-13T11:05:18.906Z"
+    },
+    "jeric-x/syncclipboard": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 62,
+      "checkedAt": "2026-10-13T11:05:18.554Z"
+    },
+    "li-zheng-hao/stickynotes": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 9,
+      "checkedAt": "2026-10-13T11:05:18.846Z"
+    },
+    "poerin/stroke": {
+      "platforms": [],
+      "assetCount": 2,
+      "checkedAt": "2026-10-13T11:05:19.514Z"
+    },
+    "dumbeau/autohotpie": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:19.273Z"
+    },
+    "majorworld/wheel": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 1,
+      "checkedAt": "2026-10-13T11:05:19.555Z"
+    },
+    "microsoft/litebox": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:20.221Z"
+    },
+    "jersou/mouse-actions": {
+      "platforms": [
+        "linux"
+      ],
+      "assetCount": 20,
+      "checkedAt": "2026-10-13T11:05:19.631Z"
+    },
+    "gamegods3/droppoint": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 40,
+      "checkedAt": "2026-10-13T11:05:20.335Z"
+    },
+    "vhanla/winxcorners": {
+      "platforms": [],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:20.253Z"
+    },
+    "ajeetdsouza/zoxide": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 74,
+      "checkedAt": "2026-10-13T11:05:20.501Z"
+    },
+    "roundedtb/roundedtb": {
+      "platforms": [],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:21.236Z"
+    },
+    "starship/starship": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 146,
+      "checkedAt": "2026-10-13T11:05:21.155Z"
+    },
+    "translucenttb/translucenttb": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 22,
+      "checkedAt": "2026-10-13T11:05:22.155Z"
+    },
+    "rounk-ctrl/translucentsm": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:22.272Z"
+    },
+    "emoacht/wifinian": {
+      "platforms": [],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:21.934Z"
+    },
+    "elestriel/taskbartools": {
+      "platforms": [],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:21.158Z"
+    },
+    "modernflyouts-community/modernflyouts": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 12,
+      "checkedAt": "2026-10-13T11:05:22.072Z"
+    },
+    "file-new-project/eartrumpet": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:22.673Z"
+    },
+    "mauricef/windowtabs": {
+      "platforms": [],
+      "checkedAt": "2026-10-13T11:05:22.951Z",
+      "note": "repository not found"
+    },
+    "zetaloop/ofgb": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 6,
+      "checkedAt": "2026-10-13T11:05:22.873Z"
+    },
+    "zhongyang219/trafficmonitor": {
+      "platforms": [],
+      "assetCount": 26,
+      "checkedAt": "2026-10-13T11:05:22.978Z"
+    },
+    "ikas-mc/contextmenuforwindows11": {
+      "platforms": [],
+      "assetCount": 23,
+      "checkedAt": "2026-10-13T11:05:23.689Z"
+    },
+    "altalex531/translucentflyouts": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 12,
+      "checkedAt": "2026-10-13T11:05:24.149Z"
+    },
+    "std-microblock/breeze-shell": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 10,
+      "checkedAt": "2026-10-13T11:05:25.516Z"
+    },
+    "sentialx/multrin": {
+      "platforms": [
+        "windows",
+        "macos"
+      ],
+      "assetCount": 45,
+      "checkedAt": "2026-10-13T11:05:24.000Z"
+    },
+    "leofitz1024/wallhaven": {
+      "platforms": [
+        "windows",
+        "macos"
+      ],
+      "assetCount": 8,
+      "checkedAt": "2026-10-13T11:05:24.372Z"
+    },
+    "xm4ddy/ofgb": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 9,
+      "checkedAt": "2026-10-13T11:05:25.069Z"
+    },
+    "taiizor/sucrose": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 30,
+      "checkedAt": "2026-10-13T11:05:26.846Z"
+    },
+    "the1812/malware-patch": {
+      "platforms": [],
+      "assetCount": 10,
+      "checkedAt": "2026-10-13T11:05:25.125Z"
+    },
+    "valinet/explorerpatcher": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 10,
+      "checkedAt": "2026-10-13T11:05:26.439Z"
+    },
+    "microsoft/powertoys": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 35,
+      "checkedAt": "2026-10-13T11:05:26.091Z"
+    },
+    "chuyu-team/dism-multi-language": {
+      "platforms": [],
+      "assetCount": 7,
+      "checkedAt": "2026-10-13T11:05:26.458Z"
+    },
+    "ventoy/ventoy": {
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "assetCount": 20,
+      "checkedAt": "2026-10-13T11:05:26.849Z"
+    },
+    "pbatard/rufus": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 35,
+      "checkedAt": "2026-10-13T11:05:28.639Z"
+    },
+    "sophia-community/sophiapp": {
+      "platforms": [],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:28.355Z"
+    },
+    "hellzerg/optimizer": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:27.562Z"
+    },
+    "builtbybel/winpilot": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 9,
+      "checkedAt": "2026-10-13T11:05:28.536Z"
+    },
+    "massgravel/microsoft-activation-scripts": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:28.518Z"
+    },
+    "zbezj/heu_kms_activator": {
+      "platforms": [],
+      "assetCount": 10,
+      "checkedAt": "2026-10-13T11:05:29.652Z"
+    },
+    "tgsan/cmwtat_digital_edition": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 10,
+      "checkedAt": "2026-10-13T11:05:29.193Z"
+    },
+    "abbodi1406/kms_vl_all_aio": {
+      "platforms": [],
+      "checkedAt": "2026-10-13T11:05:29.130Z",
+      "note": "repository not found"
+    },
+    "krxkgit/helpuploadfiles": {
+      "platforms": [],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:29.850Z"
+    },
+    "iwxyi/floatinguniverse": {
+      "platforms": [],
+      "assetCount": 4,
+      "checkedAt": "2026-10-13T11:05:29.878Z"
+    },
+    "windowtop/windowtop-app": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 74,
+      "checkedAt": "2026-10-13T11:05:32.105Z"
+    },
+    "filepulsesoft/filepulse": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 100,
+      "checkedAt": "2026-10-13T11:05:29.968Z"
+    },
+    "sandboxie-plus/sandboxie": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 20,
+      "checkedAt": "2026-10-13T11:05:31.219Z"
+    },
+    "weixiansen574/hybridfilexfer": {
+      "platforms": [
+        "android"
+      ],
+      "assetCount": 9,
+      "checkedAt": "2026-10-13T11:05:30.617Z"
+    },
+    "localsend/localsend": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux",
+        "android"
+      ],
+      "assetCount": 72,
+      "checkedAt": "2026-10-13T11:05:31.377Z"
+    },
+    "spieglt/flyingcarpet": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux",
+        "android"
+      ],
+      "assetCount": 8,
+      "checkedAt": "2026-10-13T11:05:32.173Z"
+    },
+    "bitepeng/b0pass": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux",
+        "android"
+      ],
+      "assetCount": 11,
+      "checkedAt": "2026-10-13T11:05:32.028Z"
+    },
+    "svenstaro/miniserve": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 68,
+      "checkedAt": "2026-10-13T11:05:32.943Z"
+    },
+    "alley-rs/alley-transfer": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 98,
+      "checkedAt": "2026-10-13T11:05:33.131Z"
+    },
+    "beakerbrowser/beaker": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 35,
+      "checkedAt": "2026-10-13T11:05:33.096Z"
+    },
+    "landrop/landrop": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 10,
+      "checkedAt": "2026-10-13T11:05:32.911Z"
+    },
+    "codext-remotecontrol/remotecontrol-desktop": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 15,
+      "checkedAt": "2026-10-13T11:05:33.749Z"
+    },
+    "easychart/excel-chart-plugin-easycharts": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:33.756Z"
+    },
+    "genymobile/scrcpy": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 42,
+      "checkedAt": "2026-10-13T11:05:34.485Z"
+    },
+    "odysseusyuan/lky_officetools": {
+      "platforms": [],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:34.100Z"
+    },
+    "pdfarranger/pdfarranger": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 10,
+      "checkedAt": "2026-10-13T11:05:34.450Z"
+    },
+    "iamlinhui/pdf-helper": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 2,
+      "checkedAt": "2026-10-13T11:05:34.383Z"
+    },
+    "anig1scur/tocify": {
+      "platforms": [
+        "windows",
+        "macos"
+      ],
+      "assetCount": 55,
+      "checkedAt": "2026-10-13T11:05:35.597Z"
+    },
+    "readest/readest": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux",
+        "android"
+      ],
+      "assetCount": 164,
+      "checkedAt": "2026-10-13T11:05:37.150Z"
+    },
+    "cataerogong/strapp": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 4,
+      "checkedAt": "2026-10-13T11:05:35.295Z"
+    },
+    "sigil-ebook/pageedit": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 35,
+      "checkedAt": "2026-10-13T11:05:36.503Z"
+    },
+    "read-cat/read-cat": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 140,
+      "checkedAt": "2026-10-13T11:05:35.398Z"
+    },
+    "blindpandas/bookworm": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 45,
+      "checkedAt": "2026-10-13T11:05:36.435Z"
+    },
+    "liteloaderqqnt/liteloaderqqnt": {
+      "platforms": [],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:36.373Z"
+    },
+    "xinyihl/liteloaderqqnt-plugininstaller": {
+      "platforms": [],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:37.139Z"
+    },
+    "ltxhhz/ll-plugin-list-viewer": {
+      "platforms": [],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:37.185Z"
+    },
+    "pro-2684/transitio": {
+      "platforms": [],
+      "checkedAt": "2026-10-13T11:05:37.800Z",
+      "note": "repository not found"
+    },
+    "pro-2684/scriptio": {
+      "platforms": [],
+      "checkedAt": "2026-10-13T11:05:37.995Z",
+      "note": "repository not found"
+    },
+    "xiyuesaves/liteloaderqqnt-lite_tools": {
+      "platforms": [],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:38.068Z"
+    },
+    "xh321/liteloaderqqnt-kill-update": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:38.562Z"
+    },
+    "misaliu/liteloaderqqnt-qqcleaner": {
+      "platforms": [],
+      "assetCount": 2,
+      "checkedAt": "2026-10-13T11:05:38.517Z"
+    },
+    "xh321/liteloaderqqnt-custom-css": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:37.821Z"
+    },
+    "elegantland/qqmessageblocker": {
+      "platforms": [],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:38.869Z"
+    },
+    "wjz-p/liteloaderqqnt-stick-emoji": {
+      "platforms": [],
+      "assetCount": 3,
+      "checkedAt": "2026-10-13T11:05:38.830Z"
+    },
+    "pasical/remove-custom-bubbles": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:39.143Z"
+    },
+    "xh321/liteloaderqqnt-qr-decode": {
+      "platforms": [],
+      "assetCount": 2,
+      "checkedAt": "2026-10-13T11:05:39.507Z"
+    },
+    "bdbmzwsc/liteloaderqqnt-auto-format-message": {
+      "platforms": [],
+      "assetCount": 1,
+      "checkedAt": "2026-10-13T11:05:39.550Z"
+    },
+    "pro-2684/liteloaderqqnt-purlfy": {
+      "platforms": [],
+      "checkedAt": "2026-10-13T11:05:39.952Z",
+      "note": "repository not found"
+    },
+    "xh321/liteloaderqqnt-anti-recall": {
+      "platforms": [],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:39.919Z"
+    },
+    "adproqwq/liteloaderqqnt-quickreply": {
+      "platforms": [],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:40.343Z"
+    },
+    "adproqwq/liteloaderqqnt-autosendmessages": {
+      "platforms": [],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:40.323Z"
+    },
+    "wongjinggitt/liteloaderqqnt-autoforward": {
+      "platforms": [],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:40.873Z"
+    },
+    "xiawusharve/liteloaderqqnt-mergemessage": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:41.282Z"
+    },
+    "xh321/liteloaderqqnt-directly-jump": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:40.673Z"
+    },
+    "elegantland/qqmessagesave": {
+      "platforms": [],
+      "assetCount": 3,
+      "checkedAt": "2026-10-13T11:05:41.116Z"
+    },
+    "jiang-taibai/liteloaderqqnt-quickly-remove-conversations": {
+      "platforms": [],
+      "assetCount": 4,
+      "checkedAt": "2026-10-13T11:05:41.404Z"
+    },
+    "aliubyiero/liteloaderqqnt_hotkeychangewindow": {
+      "platforms": [],
+      "assetCount": 2,
+      "checkedAt": "2026-10-13T11:05:41.612Z"
+    },
+    "huiyadanli/revokemsgpatcher": {
+      "platforms": [],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:42.051Z"
+    },
+    "blackboxo/cleanmywechat": {
+      "platforms": [
+        "macos"
+      ],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:42.004Z"
+    },
+    "git-jiadong/wechatdatabackup": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:42.040Z"
+    },
+    "xming521/weclone": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:42.343Z"
+    },
+    "hicccc77/weflow": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:42.626Z"
+    },
+    "straymeteor3337/wechatrealfriends": {
+      "platforms": [],
+      "assetCount": 6,
+      "checkedAt": "2026-10-13T11:05:42.907Z"
+    },
+    "sjzar/chatlog": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:43.331Z"
+    },
+    "xxnuo/serverless-qrcode-hub": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:43.334Z"
+    },
+    "hdshare/tencentversion": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:43.494Z"
+    },
+    "pro-2684/qqnt-version-history": {
+      "platforms": [],
+      "checkedAt": "2026-10-13T11:05:43.438Z",
+      "note": "repository not found"
+    },
+    "cooderl/wewe-rss": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:44.210Z"
+    },
+    "uxiaohan/payqrcode": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:44.104Z"
+    },
+    "ttttmr/wechat2rss": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:44.067Z"
+    },
+    "stapxs/stapxs-qq-lite-2.0": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux",
+        "android",
+        "ios"
+      ],
+      "assetCount": 48,
+      "checkedAt": "2026-10-13T11:05:44.921Z"
+    },
+    "xxnuo/mtranserver": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 100,
+      "checkedAt": "2026-10-13T11:05:45.368Z"
+    },
+    "zyddnys/manga-image-translator": {
+      "platforms": [],
+      "assetCount": 34,
+      "checkedAt": "2026-10-13T11:05:45.883Z"
+    },
+    "pot-app/pot-desktop": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 173,
+      "checkedAt": "2026-10-13T11:05:45.363Z"
+    },
+    "copytranslator/copytranslator": {
+      "platforms": [
+        "windows",
+        "macos"
+      ],
+      "assetCount": 22,
+      "checkedAt": "2026-10-13T11:05:44.871Z"
+    },
+    "pantsudango/dango-translator": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 20,
+      "checkedAt": "2026-10-13T11:05:45.912Z"
+    },
+    "inktimerecord/ttime": {
+      "platforms": [
+        "windows",
+        "macos"
+      ],
+      "assetCount": 29,
+      "checkedAt": "2026-10-13T11:05:46.940Z"
+    },
+    "stranslate/stranslate": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 35,
+      "checkedAt": "2026-10-13T11:05:46.229Z"
+    },
+    "danily07/translumo": {
+      "platforms": [],
+      "assetCount": 6,
+      "checkedAt": "2026-10-13T11:05:46.658Z"
+    },
+    "crow-translate/crow-translate": {
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "assetCount": 55,
+      "checkedAt": "2026-10-13T11:05:46.847Z"
+    },
+    "sxzxs/real-time-translation-typing": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 4,
+      "checkedAt": "2026-10-13T11:05:46.935Z"
+    },
+    "niedev/rtranslator": {
+      "platforms": [
+        "android"
+      ],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:47.507Z"
+    },
+    "hillya51/lunatranslator": {
+      "platforms": [],
+      "assetCount": 17,
+      "checkedAt": "2026-10-13T11:05:47.631Z"
+    },
+    "paddlepaddle/paddleocr": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:47.696Z"
+    },
+    "hiroi-sora/umi-ocr": {
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "assetCount": 14,
+      "checkedAt": "2026-10-13T11:05:48.045Z"
+    },
+    "abgox/inputtip": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 2,
+      "checkedAt": "2026-10-13T11:05:48.310Z"
+    },
+    "aardio/imtip": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:48.870Z"
+    },
+    "flyinclouds/kblautoswitch": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:48.419Z"
+    },
+    "festoney8/bilibili-cleaner": {
+      "platforms": [],
+      "assetCount": 15,
+      "checkedAt": "2026-10-13T11:05:49.117Z"
+    },
+    "yakunins/language-indicator": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:48.942Z"
+    },
+    "xcanwin/easycsdn": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:49.478Z"
+    },
+    "hanydd/bilibilisponsorblock": {
+      "platforms": [
+        "macos"
+      ],
+      "assetCount": 22,
+      "checkedAt": "2026-10-13T11:05:49.306Z"
+    },
+    "k08045kk/copytabtitleurl": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:50.191Z"
+    },
+    "keleus/bewlycat": {
+      "platforms": [],
+      "assetCount": 10,
+      "checkedAt": "2026-10-13T11:05:50.400Z"
+    },
+    "hansifer/tab-copy": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:50.953Z"
+    },
+    "notlmn/copy-as-markdown": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:50.954Z"
+    },
+    "nagi-ovo/gemini-voyager": {
+      "platforms": [
+        "macos"
+      ],
+      "assetCount": 20,
+      "checkedAt": "2026-10-13T11:05:50.499Z"
+    },
+    "polywock/globalspeed": {
+      "platforms": [],
+      "assetCount": 10,
+      "checkedAt": "2026-10-13T11:05:51.217Z"
+    },
+    "gildas-lormeau/singlefile": {
+      "platforms": [],
+      "assetCount": 10,
+      "checkedAt": "2026-10-13T11:05:51.369Z"
+    },
+    "md-reader/md-reader": {
+      "platforms": [],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:51.932Z"
+    },
+    "xifangczy/cat-catch": {
+      "platforms": [],
+      "assetCount": 18,
+      "checkedAt": "2026-10-13T11:05:52.184Z"
+    },
+    "airbashx/userscript": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:52.141Z"
+    },
+    "oldpanda/open-the-f-king-url-right-now": {
+      "platforms": [],
+      "assetCount": 1,
+      "checkedAt": "2026-10-13T11:05:51.931Z"
+    },
+    "wes-lin/cloud189checkin": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:52.596Z"
+    },
+    "qaiu/netdisk-fast-download": {
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "assetCount": 10,
+      "checkedAt": "2026-10-13T11:05:52.752Z"
+    },
+    "poboll/wps_script": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:52.755Z"
+    },
+    "nibabashilkk/alipan_auto_sign": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:52.824Z"
+    },
+    "dext7r/189pan": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:53.394Z"
+    },
+    "codehub666/94list": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:53.386Z"
+    },
+    "yuantuo666/baiduwp-php": {
+      "platforms": [],
+      "assetCount": 4,
+      "checkedAt": "2026-10-13T11:05:53.798Z"
+    },
+    "hmjz100/online-disk-direct-link-download-assistant": {
+      "platforms": [],
+      "assetCount": 8,
+      "checkedAt": "2026-10-13T11:05:54.001Z"
+    },
+    "maboloshi/github-chinese": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:54.020Z"
+    },
+    "mika-cn/maoxian-web-clipper": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:54.226Z"
+    },
+    "lindylearn/unclutter": {
+      "platforms": [],
+      "assetCount": 8,
+      "checkedAt": "2026-10-13T11:05:54.674Z"
+    },
+    "zachsaucier/just-read": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:54.609Z"
+    },
+    "rneomy/reader-view": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:55.222Z"
+    },
+    "afilmory/afilmory": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:55.242Z"
+    },
+    "uiverse-io/galaxy": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:56.390Z"
+    },
+    "coolxitech/deltaforce": {
+      "platforms": [],
+      "assetCount": 6,
+      "checkedAt": "2026-10-13T11:05:55.684Z"
+    },
+    "gedoor/legado": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:56.098Z"
+    },
+    "daymychen/art-design-pro": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:56.271Z"
+    },
+    "hoshinosuzumi/chronoframe": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:55.367Z"
+    },
+    "hapelee/legado-with-md3": {
+      "platforms": [
+        "android"
+      ],
+      "assetCount": 20,
+      "checkedAt": "2026-10-13T11:05:56.952Z"
+    },
+    "liufuyou/read": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:56.746Z"
+    },
+    "hongchacha/cartoon": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:57.553Z"
+    },
+    "crowforkotlin/pastemangax": {
+      "platforms": [
+        "android"
+      ],
+      "assetCount": 21,
+      "checkedAt": "2026-10-13T11:05:57.116Z"
+    },
+    "paladinlin1/perfect-viewer-x": {
+      "platforms": [
+        "windows",
+        "android"
+      ],
+      "assetCount": 3,
+      "checkedAt": "2026-10-13T11:05:57.690Z"
+    },
+    "vandersonqk/kuroreaderreleases": {
+      "platforms": [
+        "android"
+      ],
+      "assetCount": 30,
+      "checkedAt": "2026-10-13T11:05:58.006Z"
+    },
+    "hect0x7/jmcomic-apk": {
+      "platforms": [
+        "android"
+      ],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:05:58.285Z"
+    },
+    "anxcye/anx-reader": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux",
+        "android",
+        "ios"
+      ],
+      "assetCount": 44,
+      "checkedAt": "2026-10-13T11:05:58.186Z"
+    },
+    "hect0x7/jmcomic-crawler-python": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:58.431Z"
+    },
+    "eesxy/comicpacker": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:00.577Z"
+    },
+    "ciromattia/kcc": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 52,
+      "checkedAt": "2026-10-13T11:05:59.803Z"
+    },
+    "wing-kai/epub-manga-creator": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:59.015Z"
+    },
+    "konohavio/alittleepub": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:05:59.079Z"
+    },
+    "konohavio/pdfmaker": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:00.161Z"
+    },
+    "guozhigq/pilipala": {
+      "platforms": [
+        "android",
+        "ios"
+      ],
+      "assetCount": 24,
+      "checkedAt": "2026-10-13T11:05:59.926Z"
+    },
+    "bggrgjqaubcoe/piliplus": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux",
+        "android",
+        "ios"
+      ],
+      "assetCount": 55,
+      "checkedAt": "2026-10-13T11:06:00.636Z"
+    },
+    "10miaomiao/bilimiao2": {
+      "platforms": [
+        "windows",
+        "android"
+      ],
+      "assetCount": 12,
+      "checkedAt": "2026-10-13T11:06:01.026Z"
+    },
+    "ingriddaleusag-dotcom/peekpilirelease": {
+      "platforms": [],
+      "checkedAt": "2026-10-13T11:06:01.165Z",
+      "note": "repository not found"
+    },
+    "jay3-yy/bilipai": {
+      "platforms": [
+        "android"
+      ],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:06:01.127Z"
+    },
+    "1250422131/bilibilias": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:01.626Z"
+    },
+    "naaammme/pilipro": {
+      "platforms": [
+        "android"
+      ],
+      "assetCount": 15,
+      "checkedAt": "2026-10-13T11:06:01.366Z"
+    },
+    "nekogram/nekogram": {
+      "platforms": [
+        "android"
+      ],
+      "assetCount": 30,
+      "checkedAt": "2026-10-13T11:06:02.164Z"
+    },
+    "qwq233/nullgram": {
+      "platforms": [
+        "android"
+      ],
+      "assetCount": 10,
+      "checkedAt": "2026-10-13T11:06:01.936Z"
+    },
+    "arslan4k1390/cherrygram": {
+      "platforms": [
+        "android"
+      ],
+      "assetCount": 24,
+      "checkedAt": "2026-10-13T11:06:02.345Z"
+    },
+    "tdesktop-x64/tdesktop": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 25,
+      "checkedAt": "2026-10-13T11:06:02.739Z"
+    },
+    "nextalone/nagram": {
+      "platforms": [
+        "android"
+      ],
+      "assetCount": 10,
+      "checkedAt": "2026-10-13T11:06:02.241Z"
+    },
+    "bggrgjqaubcoe/c001apk": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:02.898Z"
+    },
+    "huajiqaq/hydrogen": {
+      "platforms": [
+        "android"
+      ],
+      "assetCount": 6,
+      "checkedAt": "2026-10-13T11:06:03.479Z"
+    },
+    "quantumbadger/redreader": {
+      "platforms": [
+        "android"
+      ],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:06:03.120Z"
+    },
+    "docile-alligator/infinity-for-reddit": {
+      "platforms": [
+        "android"
+      ],
+      "assetCount": 9,
+      "checkedAt": "2026-10-13T11:06:03.551Z"
+    },
+    "rikkaapps/shizuku": {
+      "platforms": [
+        "android"
+      ],
+      "assetCount": 7,
+      "checkedAt": "2026-10-13T11:06:03.836Z"
+    },
+    "uwetrottmann/seriesguide": {
+      "platforms": [
+        "android"
+      ],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:06:03.787Z"
+    },
+    "jingmatrix/lspatch": {
+      "platforms": [
+        "android"
+      ],
+      "assetCount": 20,
+      "checkedAt": "2026-10-13T11:06:04.416Z"
+    },
+    "katana-official/spatch-update": {
+      "platforms": [
+        "android"
+      ],
+      "assetCount": 19,
+      "checkedAt": "2026-10-13T11:06:04.358Z"
+    },
+    "hsskyboy/npatch": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:05.047Z"
+    },
+    "lsposed/lspatch": {
+      "platforms": [
+        "android"
+      ],
+      "assetCount": 3,
+      "checkedAt": "2026-10-13T11:06:04.544Z"
+    },
+    "7723mod/npatch": {
+      "platforms": [
+        "android"
+      ],
+      "assetCount": 10,
+      "checkedAt": "2026-10-13T11:06:05.381Z"
+    },
+    "8miyile/lspatch-op": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:05.062Z"
+    },
+    "chumoew/close-plus": {
+      "platforms": [],
+      "checkedAt": "2026-10-13T11:06:05.607Z",
+      "note": "repository not found"
+    },
+    "biliroamingx/biliroamingx": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:05.192Z"
+    },
+    "revanced/revanced-manager": {
+      "platforms": [
+        "android"
+      ],
+      "assetCount": 10,
+      "checkedAt": "2026-10-13T11:06:05.860Z"
+    },
+    "inotia00/revanced-patches": {
+      "platforms": [],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:06:06.010Z"
+    },
+    "crimera/twitter-apk": {
+      "platforms": [],
+      "checkedAt": "2026-10-13T11:06:06.222Z",
+      "note": "repository not found"
+    },
+    "crimera/piko": {
+      "platforms": [],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:06:06.156Z"
+    },
+    "langbot-app/langbot": {
+      "platforms": [],
+      "assetCount": 8,
+      "checkedAt": "2026-10-13T11:06:06.922Z"
+    },
+    "nearai/ironclaw": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 145,
+      "checkedAt": "2026-10-13T11:06:07.369Z"
+    },
+    "astrbotdevs/astrbot": {
+      "platforms": [],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:06:07.448Z"
+    },
+    "agentscope-ai/copaw": {
+      "platforms": [
+        "windows",
+        "macos"
+      ],
+      "assetCount": 12,
+      "checkedAt": "2026-10-13T11:06:08.243Z"
+    },
+    "iofficeai/aionui": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:08.269Z"
+    },
+    "tinyagi/tinyclaw": {
+      "platforms": [],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:06:07.852Z"
+    },
+    "hkuds/nanobot": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 10,
+      "checkedAt": "2026-10-13T11:06:10.167Z"
+    },
+    "qwibitai/nanoclaw": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:09.738Z"
+    },
+    "openclaw/openclaw": {
+      "platforms": [
+        "macos",
+        "linux"
+      ],
+      "assetCount": 57,
+      "checkedAt": "2026-10-13T11:06:10.457Z"
+    },
+    "sipeed/picoclaw": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 179,
+      "checkedAt": "2026-10-13T11:06:10.413Z"
+    },
+    "zeroclaw-labs/zeroclaw": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 85,
+      "checkedAt": "2026-10-13T11:06:11.742Z"
+    },
+    "bytepioneer-ai/openclaw-china": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:11.197Z"
+    },
+    "zhayujie/chatgpt-on-wechat": {
+      "platforms": [
+        "windows",
+        "macos"
+      ],
+      "assetCount": 23,
+      "checkedAt": "2026-10-13T11:06:11.597Z"
+    },
+    "xianyu110/awesome-openclaw-tutorial": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:12.552Z"
+    },
+    "netease-youdao/lobsterai": {
+      "platforms": [
+        "windows",
+        "macos"
+      ],
+      "assetCount": 20,
+      "checkedAt": "2026-10-13T11:06:11.962Z"
+    },
+    "nousresearch/hermes-agent": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:11.181Z"
+    },
+    "moeru-ai/airi": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux",
+        "android",
+        "ios"
+      ],
+      "assetCount": 90,
+      "checkedAt": "2026-10-13T11:06:13.508Z"
+    },
+    "lilimozi/openhanako": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 51,
+      "checkedAt": "2026-10-13T11:06:12.906Z"
+    },
+    "nvidia/nemoclaw": {
+      "platforms": [],
+      "assetCount": 2,
+      "checkedAt": "2026-10-13T11:06:13.337Z"
+    },
+    "project-n-e-k-o/n.e.k.o": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 43,
+      "checkedAt": "2026-10-13T11:06:13.381Z"
+    },
+    "anthropics/claude-code": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 50,
+      "checkedAt": "2026-10-13T11:06:14.373Z"
+    },
+    "code-yeongyu/oh-my-openagent": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 90,
+      "checkedAt": "2026-10-13T11:06:14.917Z"
+    },
+    "anomalyco/opencode": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 185,
+      "checkedAt": "2026-10-13T11:06:14.273Z"
+    },
+    "farion1231/cc-switch": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 115,
+      "checkedAt": "2026-10-13T11:06:15.096Z"
+    },
+    "microsoft/vscode": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:15.089Z"
+    },
+    "othmanadi/planning-with-files": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:15.633Z"
+    },
+    "yeachan-heo/oh-my-claudecode": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:15.737Z"
+    },
+    "noefabris/opencode-antigravity-auth": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:15.783Z"
+    },
+    "lvdaxianer/cmrm": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:16.441Z"
+    },
+    "msitarzewski/agency-agents": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:17.113Z"
+    },
+    "haaaiawd/antigravity-workflow-system": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:18.791Z"
+    },
+    "hkuds/cli-anything": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:16.610Z"
+    },
+    "affaan-m/everything-claude-code": {
+      "platforms": [],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:06:18.791Z"
+    },
+    "panniantong/agent-reach": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:17.995Z"
+    },
+    "tanweai/pua": {
+      "platforms": [],
+      "assetCount": 4,
+      "checkedAt": "2026-10-13T11:06:18.971Z"
+    },
+    "memohai/memoh": {
+      "platforms": [],
+      "assetCount": 10,
+      "checkedAt": "2026-10-13T11:06:18.159Z"
+    },
+    "voltagent/awesome-openclaw-skills": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:19.483Z"
+    },
+    "obra/superpowers": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:18.912Z"
+    },
+    "clawdbot-ai/awesome-openclaw-skills-zh": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:19.483Z"
+    },
+    "karpathy/autoresearch": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:19.689Z"
+    },
+    "alexanys/awesome-openclaw-usecases-zh": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:19.830Z"
+    },
+    "xpzouying/xiaohongshu-mcp": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 30,
+      "checkedAt": "2026-10-13T11:06:20.350Z"
+    },
+    "huanshere/videolingo": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:20.687Z"
+    },
+    "linzzzzzz/openclip": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:20.537Z"
+    },
+    "zhouxiaoka/autoclip": {
+      "platforms": [
+        "windows",
+        "macos"
+      ],
+      "assetCount": 50,
+      "checkedAt": "2026-10-13T11:06:22.651Z"
+    },
+    "sczhou/propainter": {
+      "platforms": [],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:06:21.030Z"
+    },
+    "pdfmathtranslate/pdfmathtranslate": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 12,
+      "checkedAt": "2026-10-13T11:06:21.284Z"
+    },
+    "wenkipan/mr.director": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:21.311Z"
+    },
+    "via007/bilibili-rag": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:21.712Z"
+    },
+    "abi/screenshot-to-code": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:22.621Z"
+    },
+    "weifeng2333/videocaptioner": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 11,
+      "checkedAt": "2026-10-13T11:06:22.050Z"
+    },
+    "yusixian/moe-copy-ai": {
+      "platforms": [],
+      "assetCount": 8,
+      "checkedAt": "2026-10-13T11:06:22.044Z"
+    },
+    "smartschoolai/ai-to-pptx": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:22.754Z"
+    },
+    "yiling0013/ai_novelgenerator": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:23.288Z"
+    },
+    "aslp-lab/diffrhythm": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:22.680Z"
+    },
+    "multimodal-art-projection/yue": {
+      "platforms": [],
+      "assetCount": 6,
+      "checkedAt": "2026-10-13T11:06:24.015Z"
+    },
+    "halfzm/v2vt": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:23.415Z"
+    },
+    "narcooo/inkos": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:23.342Z"
+    },
+    "purocean/yn": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 105,
+      "checkedAt": "2026-10-13T11:06:24.340Z"
+    },
+    "zouwei/moraya": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 45,
+      "checkedAt": "2026-10-13T11:06:24.462Z"
+    },
+    "nlbwqmz/wj-markdown-editor": {
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "assetCount": 43,
+      "checkedAt": "2026-10-13T11:06:24.205Z"
+    },
+    "hedgedoc/hedgedoc": {
+      "platforms": [],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:06:24.918Z"
+    },
+    "doocs/md": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:24.907Z"
+    },
+    "nicejade/markdown-online-editor": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:25.020Z"
+    },
+    "kde/ghostwriter": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:06:25.657Z"
+    },
+    "flyhunterl/flymd": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 30,
+      "checkedAt": "2026-10-13T11:06:25.272Z"
+    },
+    "laurent22/joplin": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 100,
+      "checkedAt": "2026-10-13T11:06:26.031Z"
+    },
+    "maqi1520/mdx-notes": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 195,
+      "checkedAt": "2026-10-13T11:06:25.839Z"
+    },
+    "scottsmith666/archive-markdown-editor": {
+      "platforms": [
+        "windows",
+        "linux"
+      ],
+      "assetCount": 10,
+      "checkedAt": "2026-10-13T11:06:26.020Z"
+    },
+    "gsantner/markor": {
+      "platforms": [
+        "android"
+      ],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:06:26.441Z"
+    },
+    "microsoft/markitdown": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:26.862Z"
+    },
+    "opendatalab/mineru": {
+      "platforms": [],
+      "assetCount": 5,
+      "checkedAt": "2026-10-13T11:06:26.869Z"
+    },
+    "datalab-to/marker": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:26.782Z"
+    },
+    "retext-project/retext": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:28.000Z"
+    },
+    "milkdown/milkdown": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:27.541Z"
+    },
+    "nhn/tui.editor": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:27.592Z"
+    },
+    "oomol-lab/pdf-craft": {
+      "platforms": [],
+      "assetCount": 20,
+      "checkedAt": "2026-10-13T11:06:27.217Z"
+    },
+    "markpluslabs/react-markplus": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:28.185Z"
+    },
+    "hinesboy/mavoneditor": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:27.984Z"
+    },
+    "uiwjs/react-md-editor": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:28.411Z"
+    },
+    "tencent/cherry-markdown": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 7,
+      "checkedAt": "2026-10-13T11:06:28.823Z"
+    },
+    "ryanlelek/raneto": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:28.652Z"
+    },
+    "smart-open/traeworkassistant": {
+      "platforms": [
+        "windows",
+        "macos"
+      ],
+      "assetCount": 35,
+      "checkedAt": "2026-10-13T11:06:29.015Z"
+    },
+    "huidada1/agenthub": {
+      "platforms": [
+        "windows"
+      ],
+      "assetCount": 20,
+      "checkedAt": "2026-10-13T11:06:29.435Z"
+    },
+    "88lin/workbuddy-auto-signin": {
+      "platforms": [],
+      "assetCount": 0,
+      "checkedAt": "2026-10-13T11:06:29.937Z"
+    },
+    "linguo2625469/workbuddy2api-panel": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 30,
+      "checkedAt": "2026-10-13T11:06:29.437Z"
+    },
+    "aurora-develop/aurora": {
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "assetCount": 25,
+      "checkedAt": "2026-10-13T11:06:30.240Z"
+    },
+    "ardeyouxipianyi/workbuddy2api-hub": {
+      "platforms": [
+        "android"
+      ],
+      "assetCount": 25,
+      "checkedAt": "2026-10-13T11:06:29.997Z"
+    },
+    "tech-shrimp/wechatmoments": {
+      "platforms": [],
+      "checkedAt": "2026-10-13T11:09:02.101Z",
+      "note": "repository access blocked (451)"
+    },
+    "kurtbestor/hitomi-downloader": {
+      "platforms": [],
+      "checkedAt": "2026-10-13T11:09:02.144Z",
+      "note": "repository access blocked (451)"
+    },
+    "afumu/wetrace": {
+      "platforms": [],
+      "checkedAt": "2026-10-13T11:09:02.806Z",
+      "note": "repository access blocked (451)"
+    }
+  }
+}
