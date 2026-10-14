@@ -1120,6 +1120,28 @@
           "hide_badges": [],
           "platforms": [],
           "status": "ok"
+        },
+        {
+          "toolbox": null,
+          "name": "agent2api",
+          "url": "https://github.com/aimod-cc/agent2api",
+          "official_site": "https://github.com/aimod-cc/agent2api",
+          "desc": "本地反向代理 + OpenAI 兼容 AI 网关：复用桌面客户端登录态，一个 base_url 调用十余家模型额度 · Local OpenAI-compatible gateway for AI coding clients — WorkBuddy, Raccoon, CatPaw, AutoClaw, Qoder, Cline, Accio, ZCode, CodeArts, Trae and more.",
+          "icon": "/images/logos/aimod-cc-agent2api.webp?t=1791950496882",
+          "hide_badges": [],
+          "platforms": [],
+          "status": "ok"
+        },
+        {
+          "toolbox": null,
+          "name": "magpie",
+          "url": "https://github.com/yetone/magpie",
+          "official_site": "https://usemagpie.ai",
+          "desc": "Every agent's model. One place. Codex on DeepSeek, Claude Code on Kimi, from the menu bar.",
+          "icon": "/images/logos/yetone-magpie.webp?t=1791950498467",
+          "hide_badges": [],
+          "platforms": [],
+          "status": "ok"
         }
       ],
       "tabs": []

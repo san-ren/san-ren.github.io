@@ -127,3 +127,205 @@ export function inferPlatformsFromReleaseAssets(assetNames) {
   }
   return RESOURCE_PLATFORM_VALUES.filter((value) => hit.has(value));
 }
+
+// ==========================================================================
+// 以下五个是「附件名猜不出来时」的兜底信号，按可信度从高到低排列，
+// 由构建期 platformDetect.mjs 依序尝试（命中即停，省 API 额度）：
+//   topics → 文件树 → 主语言 → package.json → GitHub Actions workflow
+// ==========================================================================
+
+/** topic → 平台：作者主动打的标签，是最可靠的软信号 */
+const TOPIC_PLATFORM_MAP = [
+  { value: 'windows', tests: ['windows', 'win32', 'win64', 'windows-app', 'windows-desktop'] },
+  { value: 'macos', tests: ['macos', 'mac', 'osx', 'macos-app', 'mac-app'] },
+  { value: 'linux', tests: ['linux', 'linux-app'] },
+  { value: 'android', tests: ['android', 'android-app'] },
+  { value: 'ios', tests: ['ios', 'iphone', 'ipad', 'ios-app'] },
+];
+
+/** 这些 topic 视为「桌面三件套都支持」 */
+const CROSS_PLATFORM_TOPICS = ['cross-platform', 'crossplatform', 'cross-platform-app', 'multi-platform', 'multiplatform'];
+
+/** Apple 生态语言：没有更具体的信号时按桌面 macOS 计 */
+const APPLE_LANGUAGES = ['Swift', 'Objective-C', 'Objective-C++'];
+
+/**
+ * 从仓库 topics 推断平台（作者主动标注，比文件名更可信）
+ * @param {string[]} [topics]
+ * @returns {string[]}
+ */
+export function inferPlatformsFromTopics(topics) {
+  if (!Array.isArray(topics) || topics.length === 0) return [];
+
+  const lower = topics.map((t) => String(t).toLowerCase());
+  const hit = new Set();
+  for (const topic of lower) {
+    if (CROSS_PLATFORM_TOPICS.includes(topic)) {
+      hit.add('windows');
+      hit.add('macos');
+      hit.add('linux');
+      continue;
+    }
+    for (const rule of TOPIC_PLATFORM_MAP) {
+      if (!hit.has(rule.value) && rule.tests.includes(topic)) hit.add(rule.value);
+    }
+  }
+  return RESOURCE_PLATFORM_VALUES.filter((value) => hit.has(value));
+}
+
+/**
+ * 从仓库主语言推断平台：只认 Apple 生态（Swift / Objective-C → macOS）。
+ * 注意：Swift 也存在 Linux 服务端项目，所以 topics 已说明 Linux 时不会走到这里
+ * （调用方按 topics → 语言 的顺序提前终止了）。
+ * @param {string} [language]
+ * @returns {string[]}
+ */
+export function inferPlatformsFromLanguage(language) {
+  if (typeof language !== 'string' || !language) return [];
+  return APPLE_LANGUAGES.includes(language) ? ['macos'] : [];
+}
+
+/**
+ * 从默认分支的文件树推断平台
+ * @param {string[]} files 文件路径数组（git trees API）
+ * @param {string} [language] 仓库主语言，仅用于 C# + .sln 的「倾向 Windows」判据
+ * @returns {string[]}
+ */
+export function inferPlatformsFromFiles(files, language) {
+  if (!Array.isArray(files) || files.length === 0) return [];
+
+  const paths = files.map((f) => String(f).toLowerCase());
+  const has = (pattern) => paths.some((p) => pattern.test(p));
+  const hit = new Set();
+
+  // Android：清单或 Gradle 工程文件
+  if (has(/androidmanifest\.xml$/) || has(/(^|\/)(build\.gradle|build\.gradle\.kts|settings\.gradle|settings\.gradle\.kts)$/)) {
+    hit.add('android');
+  }
+
+  // Apple：Xcode 工程 / Info.plist。iOS 与 macOS 无法只凭工程文件区分，
+  // 判据是这些文件的位置：全都在 ios/ 目录下（Flutter / RN 的 iOS 子工程）→ iOS，
+  // 否则按桌面 macOS 计；另外出现 ios/ 目录或 LaunchScreen 时补一枚 iOS。
+  const appleFiles = paths.filter(
+    (p) => /info\.plist$/.test(p) || /\.xcodeproj(\/|$)/.test(p) || /\.xcworkspace(\/|$)/.test(p)
+  );
+  if (appleFiles.length > 0) {
+    const iosOnly = appleFiles.every((p) => /(^|\/)ios\//.test(p));
+    hit.add(iosOnly ? 'ios' : 'macos');
+    if (has(/(^|\/)ios\//) || has(/launchscreen\.(storyboard|xib)$/)) hit.add('ios');
+  }
+
+  // Windows：C# 解决方案（.wpf 是框架名不是扩展名，文件树里无从判断，只保留 .sln 判据）
+  if (language === 'C#' && (has(/\.sln$/) || has(/\.csproj$/))) hit.add('windows');
+
+  return RESOURCE_PLATFORM_VALUES.filter((value) => hit.has(value));
+}
+
+/**
+ * 从 package.json 原文推断平台：electron / tauri 依赖 = 跨平台桌面应用
+ * @param {string} [raw]
+ * @returns {string[]}
+ */
+export function inferPlatformsFromPackageJson(raw) {
+  if (typeof raw !== 'string' || !raw) return [];
+
+  let pkg;
+  try {
+    pkg = JSON.parse(raw);
+  } catch {
+    return [];
+  }
+  const deps = { ...(pkg.dependencies || {}), ...(pkg.devDependencies || {}), ...(pkg.optionalDependencies || {}) };
+  const isCrossPlatformDesktop = Object.keys(deps).some(
+    (name) => name === 'electron' || name.startsWith('@electron/') || name === 'tauri' || name.startsWith('@tauri-apps/')
+  );
+  return isCrossPlatformDesktop ? ['windows', 'macos', 'linux'] : [];
+}
+
+/** 只看 runs-on 与 matrix os 行，避免把注释 / 脚本里的系统名当成 CI 信号 */
+const WORKFLOW_OS_PATTERNS = [
+  { value: 'linux', test: (scope) => /ubuntu|linux/.test(scope) },
+  { value: 'macos', test: (scope) => /macos|osx/.test(scope) },
+  { value: 'windows', test: (scope) => /windows|win32|win64/.test(scope) },
+];
+
+/**
+ * 从 GitHub Actions workflow 原文推断平台（runs-on / matrix.os）
+ * @param {string} [text]
+ * @returns {string[]}
+ */
+export function inferPlatformsFromWorkflow(text) {
+  if (typeof text !== 'string' || !text) return [];
+
+  const scope = [...(text.match(/^\s*runs-on:.*$/gm) || []), ...(text.match(/^\s*-?\s*os:.*$/gm) || [])]
+    .join('\n')
+    .toLowerCase();
+  if (!scope) return [];
+
+  const hit = new Set();
+  for (const rule of WORKFLOW_OS_PATTERNS) {
+    if (!hit.has(rule.value) && rule.test(scope)) hit.add(rule.value);
+  }
+  return RESOURCE_PLATFORM_VALUES.filter((value) => hit.has(value));
+}
+
+// ==========================================================================
+// CI 信号门槛
+// runs-on: ubuntu-latest 是 GitHub 的默认值，大量与平台无关的项目都会写它，
+// 直接拿来当平台证据会把自托管 Web 应用 / 命令行工具 / 库统一误判成 Linux。
+// 桌面应用反而不用担心：它们通常有 Release 附件（.exe/.dmg/.deb…）或
+// package.json 里的 electron / tauri 依赖，那两道信号排在更前面。
+// ==========================================================================
+
+/** 这些主语言基本不产出"平台专属"的桌面安装包 */
+const CI_SIGNAL_BLOCKED_LANGUAGES = [
+  'TypeScript',
+  'JavaScript',
+  'PHP',
+  'Python',
+  'Ruby',
+  'HTML',
+  'CSS',
+  'Shell',
+  'Dockerfile',
+  'Jupyter Notebook',
+];
+
+/** 这些 topic 说明项目本身与桌面平台无关 */
+const CI_SIGNAL_BLOCKED_TOPICS = [
+  'web',
+  'web-app',
+  'webapp',
+  'website',
+  'cli',
+  'command-line',
+  'command-line-tool',
+  'commandline',
+  'terminal',
+  'shell-script',
+  'library',
+  'framework',
+  'sdk',
+  'api',
+  'backend',
+  'server-side',
+  'docs',
+  'bot',
+  'scraper',
+  'crawler',
+];
+
+/**
+ * 是否跳过 CI（workflow runs-on）信号
+ * @param {object} [signals]
+ * @param {string[]} [signals.topics] 仓库 topics
+ * @param {string} [signals.language] 仓库主语言
+ * @returns {boolean} true = 这个项目不该用 runs-on 推断平台
+ */
+export function shouldSkipCiSignal({ topics = [], language = '' } = {}) {
+  const normalizedTopics = (Array.isArray(topics) ? topics : []).map((t) => String(t).toLowerCase());
+  if (normalizedTopics.some((topic) => CI_SIGNAL_BLOCKED_TOPICS.includes(topic))) return true;
+
+  const normalizedLanguage = String(language || '').toLowerCase();
+  return CI_SIGNAL_BLOCKED_LANGUAGES.some((lang) => lang.toLowerCase() === normalizedLanguage);
+}

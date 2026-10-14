@@ -3,7 +3,8 @@
  *
  * 数据流：
  *   src/content/nav-groups/*.json（未手动填写 platforms 的 GitHub 资源）
- *     → GitHub Releases API（附件名推断平台，规则见 resourcePlatforms.mjs）
+ *     → 逐仓库依次尝试：Release 附件名 → topics → 文件树 → 主语言
+ *       → package.json(electron/tauri) → workflow runs-on（命中即停）
  *       → src/data/platform-cache.json（缓存，随仓库提交）
  *         → src/utils/navData.ts 读取（手动优先 / 缓存兜底）→ 卡片浮窗徽章
  *
@@ -13,7 +14,8 @@
  *
  * ⚠️ 探测失败绝不打断构建：网络错误 / 限额耗尽只跳过，缓存保持原样，下一轮再试。
  * ⚠️ 未认证的 GitHub API 限额是 60 次/小时，因此默认每轮只花 25 次（随缓存提交后，
- *    后续构建通常一次请求都不用花）。
+ *    后续构建通常一次请求都不用花）。单仓库最多花 3 次 API 调用（releases / repo / trees），
+ *    workflow 与 package.json 走 raw.githubusercontent.com，不占额度。
  * ⚠️ 本文件只在 Node 侧运行（node:fs / fetch），不要被浏览器端组件引用。
  */
 import { existsSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
@@ -22,8 +24,14 @@ import { pathToFileURL } from 'node:url';
 import {
   PLATFORM_NONE,
   getGithubRepoKey,
+  inferPlatformsFromFiles,
+  inferPlatformsFromLanguage,
+  inferPlatformsFromPackageJson,
   inferPlatformsFromReleaseAssets,
+  inferPlatformsFromTopics,
+  inferPlatformsFromWorkflow,
   isKnownPlatform,
+  shouldSkipCiSignal,
 } from './resourcePlatforms.mjs';
 
 /** 缓存文件（相对项目根） */
@@ -40,6 +48,13 @@ const CACHE_TTL_DAYS = 30;
 const UNAUTH_BUDGET = 25;
 /** 认证时的默认预算（限额 5000 次/小时，够跑完全站） */
 const AUTH_BUDGET = 500;
+/** 每个仓库最多读几个 workflow 文件：读 runs-on 有 2-3 个就够了，别把时间耗在 CI 配置上 */
+const MAX_WORKFLOW_FILES = 4;
+/**
+ * raw.githubusercontent.com 不计入 API 限额 —— workflow / package.json 走这里读原文，
+ * 所以哪怕把每个仓库的文件都翻一遍，也只花 3 次 API 调用（releases / repo / trees）。
+ */
+const RAW_BASE = 'https://raw.githubusercontent.com';
 
 /** 读取缓存；文件缺失或损坏时返回空缓存（探测会重建） */
 export function loadPlatformCache(root) {
@@ -131,12 +146,12 @@ export function collectPlatformTargets(root) {
   return [...targets.values()];
 }
 
-/** 拉取最近 5 个 Release 的附件名 */
-async function fetchReleaseAssets(key, token) {
-  const headers = { Accept: 'application/vnd.github+json', 'User-Agent': USER_AGENT };
+/** 统一的 GitHub API 请求：把 404 / 451 / 限额归一成状态，省得每处各写一遍 */
+async function githubRequest(path, token, { raw = false } = {}) {
+  const headers = { Accept: raw ? 'application/vnd.github.raw' : 'application/vnd.github+json', 'User-Agent': USER_AGENT };
   if (token) headers.Authorization = `token ${token}`;
 
-  const res = await fetch(`${API_BASE}/repos/${key}/releases?per_page=5`, {
+  const res = await fetch(`${API_BASE}${path}`, {
     headers,
     signal: AbortSignal.timeout(REQUEST_TIMEOUT),
   });
@@ -146,15 +161,141 @@ async function fetchReleaseAssets(key, token) {
   if (res.status === 451) return { status: 'blocked' };
   if (res.status === 403 || res.status === 429) return { status: 'rate-limited' };
   if (!res.ok) return { status: 'error', code: res.status };
+  return raw ? { status: 'ok', text: await res.text() } : { status: 'ok', json: await res.json() };
+}
 
-  const releases = await res.json();
+/** 最近 5 个 Release 的附件名 */
+async function fetchReleaseAssets(key, token) {
+  const res = await githubRequest(`/repos/${key}/releases?per_page=5`, token);
+  if (res.status !== 'ok') return res;
+
   const assetNames = [];
-  for (const release of Array.isArray(releases) ? releases : []) {
+  for (const release of Array.isArray(res.json) ? res.json : []) {
     for (const asset of release?.assets || []) {
       if (typeof asset?.name === 'string') assetNames.push(asset.name);
     }
   }
   return { status: 'ok', assetNames };
+}
+
+/** 仓库元信息：topics / 主语言 / 默认分支 */
+async function fetchRepoMeta(key, token) {
+  const res = await githubRequest(`/repos/${key}`, token);
+  if (res.status !== 'ok') return res;
+
+  const meta = res.json || {};
+  return {
+    status: 'ok',
+    topics: Array.isArray(meta.topics) ? meta.topics : [],
+    language: typeof meta.language === 'string' ? meta.language : '',
+    defaultBranch: typeof meta.default_branch === 'string' ? meta.default_branch : '',
+  };
+}
+
+/** 默认分支的完整文件树（超大仓库会被 GitHub 截断，用拿到的部分即可） */
+async function fetchRepoTree(key, branch, token) {
+  if (!branch) return { status: 'error', code: 'missing-default-branch' };
+
+  const res = await githubRequest(`/repos/${key}/git/trees/${encodeURIComponent(branch)}?recursive=1`, token);
+  if (res.status !== 'ok') return res;
+
+  const paths = [];
+  for (const entry of res.json?.tree || []) {
+    if (typeof entry?.path === 'string' && entry.type !== 'tree') paths.push(entry.path);
+  }
+  return { status: 'ok', paths };
+}
+
+/**
+ * 读仓库里的文件原文（走 raw 域名，不占 API 限额）
+ * @param {string} key owner/repo
+ * @param {string} branch 分支名
+ * @param {string} filePath 仓库内路径
+ */
+async function fetchRawFile(key, branch, filePath) {
+  // 分支名和路径都要按 / 分段编码：分支可能叫 feature/x，路径里也可能有空格
+  const encodedBranch = branch.split('/').map(encodeURIComponent).join('/');
+  const encodedPath = filePath.split('/').map(encodeURIComponent).join('/');
+  const url = `${RAW_BASE}/${key}/${encodedBranch}/${encodedPath}`;
+  const res = await fetch(url, {
+    headers: { 'User-Agent': USER_AGENT },
+    signal: AbortSignal.timeout(REQUEST_TIMEOUT),
+  });
+  if (!res.ok) return { status: 'error', code: res.status };
+  return { status: 'ok', text: await res.text() };
+}
+
+/**
+ * 单个仓库的平台探测：按可信度依次尝试五类信号，命中即停（省 API 额度）。
+ *
+ *   1. Release 附件名        —— 最硬，作者上传的安装包自带系统
+ *   2. topics               —— 作者主动标注
+ *   3. 主语言                —— Swift / Objective-C → macOS
+ *   4. 文件树                —— AndroidManifest / Gradle / Xcode 工程 / C# .sln
+ *   5. package.json          —— electron / tauri → 跨平台桌面
+ *   6. workflow 的 runs-on   —— 底层 CI 跑在什么系统上（Web/CLI/库类项目跳过，见 shouldSkipCiSignal）
+ *
+ * @returns {Promise<{ status: string, platforms?: string[], source?: string, assetCount?: number }>}
+ *   status: ok | missing | blocked | rate-limited | error
+ */
+export async function resolveRepoPlatforms(key, token) {
+  const releases = await fetchReleaseAssets(key, token);
+  if (releases.status !== 'ok') return releases;
+
+  const fromAssets = inferPlatformsFromReleaseAssets(releases.assetNames);
+  if (fromAssets.length > 0) {
+    return { status: 'ok', platforms: fromAssets, source: 'assets', assetCount: releases.assetNames.length };
+  }
+
+  const meta = await fetchRepoMeta(key, token);
+  if (meta.status !== 'ok') return meta;
+
+  const fromTopics = inferPlatformsFromTopics(meta.topics);
+  if (fromTopics.length > 0) return { status: 'ok', platforms: fromTopics, source: 'topics', assetCount: 0 };
+
+  const fromLanguage = inferPlatformsFromLanguage(meta.language);
+  if (fromLanguage.length > 0) return { status: 'ok', platforms: fromLanguage, source: 'language', assetCount: 0 };
+
+  const tree = await fetchRepoTree(key, meta.defaultBranch, token);
+  // 树拉不到（网络 / 超时）时整个仓库判失败、下轮重试，
+  // 不能把「没查到」当成「没有平台」写进缓存，否则文件类信号会被长期漏掉。
+  if (tree.status !== 'ok') return tree;
+
+  const fromFiles = inferPlatformsFromFiles(tree.paths, meta.language);
+  if (fromFiles.length > 0) return { status: 'ok', platforms: fromFiles, source: 'files', assetCount: 0 };
+
+  // package.json：root 优先，其次子目录里的第一个
+  const packageJsonPath =
+    tree.paths.find((p) => p.toLowerCase() === 'package.json') ||
+    tree.paths.find((p) => p.toLowerCase().endsWith('/package.json'));
+  if (packageJsonPath) {
+    const pkg = await fetchRawFile(key, meta.defaultBranch, packageJsonPath, token);
+    if (pkg.status === 'ok') {
+      const fromPackageJson = inferPlatformsFromPackageJson(pkg.text);
+      if (fromPackageJson.length > 0) {
+        return { status: 'ok', platforms: fromPackageJson, source: 'package-json', assetCount: 0 };
+      }
+    }
+  }
+
+  // CI：runs-on / matrix.os（workflow 文件同样优先走 raw 域名）。
+  // 门槛：Web / CLI / 库类项目不拿 runs-on 当平台证据 —— ubuntu-latest 是默认值，
+  // 误判率太高；桌面应用已被前面的附件 / package.json 信号接住。
+  if (shouldSkipCiSignal({ topics: meta.topics, language: meta.language })) {
+    return { status: 'ok', platforms: [], source: 'ci-skipped', assetCount: releases.assetNames.length };
+  }
+
+  const workflowPaths = tree.paths.filter(
+    (p) => p.toLowerCase().startsWith('.github/workflows/') && /\.ya?ml$/.test(p)
+  );
+  for (const workflowPath of workflowPaths.slice(0, MAX_WORKFLOW_FILES)) {
+    const workflow = await fetchRawFile(key, meta.defaultBranch, workflowPath, token);
+    if (workflow.status !== 'ok') continue; // 单个 workflow 读不到，不中断整个仓库
+    const fromCi = inferPlatformsFromWorkflow(workflow.text);
+    if (fromCi.length > 0) return { status: 'ok', platforms: fromCi, source: 'workflows', assetCount: 0 };
+  }
+
+  return { status: 'ok', platforms: [], source: 'none', assetCount: releases.assetNames.length };
 }
 
 /**
@@ -204,7 +345,7 @@ export async function runPlatformDetection({
     while (!rateLimited && cursor < batch.length) {
       const key = batch[cursor++];
       try {
-        const result = await fetchReleaseAssets(key, token);
+        const result = await resolveRepoPlatforms(key, token);
 
         if (result.status === 'rate-limited') {
           rateLimited = true;
@@ -228,8 +369,9 @@ export async function runPlatformDetection({
         }
 
         cache.repos[key] = {
-          platforms: inferPlatformsFromReleaseAssets(result.assetNames),
-          assetCount: result.assetNames.length,
+          platforms: result.platforms,
+          source: result.source,
+          assetCount: result.assetCount || 0,
           checkedAt: new Date().toISOString(),
         };
         added++;
